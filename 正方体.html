@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+		
+		body {
+			/*height: 100%;*/
+			background-color: black;
+		}
+		.wrapper {
+			background-color: black;
+			perspective: 1000px;
+		}
+
+		.box {
+
+			-webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+			width: 120px;
+			height: 120px;
+			margin: 200px auto;
+			animation: rotate 10s infinite linear;
+			/*transform:rotateX(60deg) rotateY(55deg) rotateZ(60deg);*/
+		}
+
+		@keyframes rotate{
+            0%{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100%{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .box div {
+
+        	display: block;
+            height:100%;
+            width:100%;
+            border:1px solid #000;
+            background: red;
+            position: absolute;
+            
+			opacity: 0.5;
+			transition: transform 1s ease-out;
+        }
+
+		.in-front,.in-back,.in-left,.in-right,.in-top,.in-bottom {
+			display: block;
+            height:60px;
+            width:60px;
+            border:1px solid #000;
+            background: white;
+            position: absolute;
+            top:30px;
+            left:30px;
+		}
+		
+		.in-front {
+			transform: translateZ(30px);
+			
+		}
+
+		.in-back {
+			transform: translateZ(-30px);
+			
+		}
+
+	 	.in-left{
+            transform: translateX(-30px) rotateY(90deg);
+            
+        }
+        .in-right{
+            transform: translateX(30px) rotateY(90deg);
+           
+        }
+        .in-top{
+            transform: translateY(-30px) rotateX(90deg);
+           
+        }
+        .in-bottom{
+            transform: translateY(30px) rotateX(90deg);
+         }
+
+		.out-front {
+			transform: translateZ(60px);
+		}
+
+		.out-back {
+			transform: translateZ(-60px);
+		}
+
+		.out-left {
+			transform: translateX(-60px) rotateY(90deg);
+		}
+
+		.out-right {
+			transform: translateX(60px) rotateY(90deg);
+		}
+
+		.out-top {
+			transform: translateY(-60px) rotateX(90deg);
+		}
+
+		.out-bottom {
+ 			transform: translateY(60px) rotateX(90deg);
+		}
+
+		.box:hover .out-front {
+			transform: translateZ(120px);
+		}
+
+		.box:hover .out-back {
+			transform: translateZ(-120px);
+		}
+
+		.box:hover .out-left {
+			transform: translateX(-120px) rotateY(90deg);
+		}
+
+		.box:hover .out-right {
+			transform: translateX(120px) rotateY(90deg);
+		}
+
+		.box:hover .out-top {
+			transform: translateY(-120px) rotateX(90deg);
+		}
+
+		.box:hover .out-bottom {
+ 			transform: translateY(120px) rotateX(90deg);
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="wrapper">
+		<div class="box">
+			<div class="out-front"></div>
+			<div class="out-back"></div>
+			<div class="out-left"></div>
+			<div class="out-right"></div>
+			<div class="out-top"></div>
+			<div class="out-bottom"></div>
+
+			<span class="in-front"></span>
+			<span class="in-back"></span>
+			<span class="in-left"></span>
+			<span class="in-right"></span>
+			<span class="in-top"></span>
+			<span class="in-bottom"></span>
+
+		</div>
+	</div>
+</body>
+</html>
